@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
   return (
-    <View Style={styles.container}>
+    <View style={styles.container}>
       <Text>Exercise Page</Text>
     </View>
   );
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-}
+})
