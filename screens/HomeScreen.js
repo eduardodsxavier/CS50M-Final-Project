@@ -18,15 +18,17 @@ const DATA = [
     id:4,
     type:"push",
   },
-]
-
-const Day = ({dayInfo}) => (
-  <View>
-    <Text>day: {dayInfo.id} type: {dayInfo.type}</Text>
-  </View>
-) 
+] 
 
 export default function App({ navigation }) {
+
+  const Day = ({dayInfo}) => (
+    <Pressable style={styles.button} onPress={() => navigation.push('Day')}>
+      <Text>day: {dayInfo.id}</Text>
+      <Text>type: {dayInfo.type}</Text>
+    </Pressable>
+  )
+
   return (
     <View>
       <FlatList 
@@ -46,11 +48,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button : {
-    borderWidth: 1,
-    borderColor: 'grey',
-    borderRadius: 10,
+    margin: 20,
     marginBottom: 50,
     width: 150,
-    alignItems: 'center',
   },
 });
