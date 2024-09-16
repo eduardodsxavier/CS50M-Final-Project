@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Pressable, FlatList, TextInput } from 'react-native';
 
 const DATA = [
   {
@@ -31,6 +31,9 @@ export default function App({ navigation }) {
 
   return (
     <View>
+      <Pressable onPress={() => navigation.push('Day')}>
+	<Text>Add day</Text>
+      </Pressable>
       <FlatList 
 	data={DATA}
 	renderItem={({item}) => <Day dayInfo={item}/>}

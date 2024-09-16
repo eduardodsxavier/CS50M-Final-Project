@@ -1,5 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Pressable, FlatList, TextInput } from 'react-native';
+
+let name = "PULL UP"
+let type = "PUSH"
 
 const DATA = [
   {
@@ -37,13 +40,26 @@ export default function App() {
 
   return (
     <View style={styles.Margin}>
-      <Text>Push Up</Text>
+      <TextInput
+	value={name}
+	onChangeText={(nameChange) => {
+	  name = nameChange
+	}}
+      />
+      <TextInput
+	value={type}
+	onChangeText={(typeChange) => {
+	  type = typeChange 
+	}}/>
       <Text>Sets: </Text>
       <FlatList 
 	data={DATA}
 	renderItem={({item}) => <Set SetInfo={item}/>}
         keyExtractor={item => item.id}
       />
+      <Pressable>
+	<Text>Add Set</Text>
+      </Pressable>
     </View>
   );
 }

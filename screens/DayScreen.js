@@ -36,6 +36,9 @@ export default function App({ navigation }) {
 
   return (
     <View>
+      <Pressable onPress={() => navigation.push('Exercise')}>
+	<Text>Add Exercise</Text>
+      </Pressable>
       <FlatList 
 	data={DATA}
 	renderItem={({item}) => <Exercise ExerciseInfo={item}/>}
