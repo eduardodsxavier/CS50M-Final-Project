@@ -1,30 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, FlatList } from 'react-native';
-
-const DATA = [
-  {
-    id:1,
-    name: 'pull up',
-    sets: 1,
-  },
-  {
-    id:2,
-    name: 'squat',
-    sets: 3,
-  },
-  {
-    id:3,
-    name: 'dead lift',
-    sets: 5,
-  },
-  {
-    id:4,
-    name: 'bench press',
-    sets: 3,
-  },
-]
+import { useState } from 'react'
 
 export default function App({ navigation }) {
+
+  const [ DATA, setDATA ] = useState([])
+
+  function addExercise() {
+    setDATA([...DATA, {id: DATA.length + 1}])
+    navigation.push('Exercise')
+  }
 
   const Exercise = ({ExerciseInfo}) => (
     <Pressable style={styles.button} onPress={() => navigation.push('Exercise')}>
@@ -36,7 +21,7 @@ export default function App({ navigation }) {
 
   return (
     <View>
-      <Pressable onPress={() => navigation.push('Exercise')}>
+      <Pressable onPress={addExercise}>
 	<Text>Add Exercise</Text>
       </Pressable>
       <FlatList 

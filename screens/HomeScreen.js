@@ -1,26 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, FlatList, TextInput } from 'react-native';
-
-const DATA = [
-  {
-    id:1,
-    type:"push",
-  },
-  {
-    id:2,
-    type:"pull",
-  },
-  {
-    id:3,
-    type:"leg",
-  },
-  {
-    id:4,
-    type:"push",
-  },
-] 
+import { useState } from 'react' 
 
 export default function App({ navigation }) {
+
+
+const [ DATA, setDATA ] = useState([])
+
+  function addDay() {
+    setDATA([...DATA, {id: DATA.length + 1}])
+    navigation.push('Day')
+  }
 
   const Day = ({dayInfo}) => (
     <Pressable style={styles.button} onPress={() => navigation.push('Day')}>
@@ -31,7 +21,7 @@ export default function App({ navigation }) {
 
   return (
     <View>
-      <Pressable onPress={() => navigation.push('Day')}>
+      <Pressable onPress={addDay}>
 	<Text>Add day</Text>
       </Pressable>
       <FlatList 

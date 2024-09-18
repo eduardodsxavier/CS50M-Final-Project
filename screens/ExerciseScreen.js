@@ -1,40 +1,24 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Pressable, FlatList, TextInput } from 'react-native';
-
-let name = "PULL UP"
-let type = "PUSH"
-
-const DATA = [
-  {
-    id:1,
-    reps: 10,
-    weight: 10,
-  },
-  {
-    id:2,
-    reps: 10,
-    weight: 10,
-
-  },
-  {
-    id:3,
-    reps: 12,
-    weight: 20,
-  },
-  {
-    id:4,
-    reps: 8,
-    weight: 20,
-  },
-]
+import { useState } from 'react'
 
 export default function App() {
 
-  const Set = ({SetInfo}) => (
+  const [ DATA, setDATA ] = useState([]) 
+  const [ name, setName ] = useState("")
+  const [ type, setType ] = useState("")
+  const [ reps, setReps ] = useState()
+  const [ weight, setWeight ] = useState()
+
+  function addSet() {
+    setDATA([...DATA, {id: DATA.length + 1, reps: reps, weight: weight,},])
+  }
+ 
+  const Set = ({setInfo}) => (
     <View style={styles.Flatlist}>
-      <Text>set: {SetInfo.id}</Text>
-      <Text>reps: {SetInfo.reps}</Text>
-      <Text>weight: {SetInfo.weight}</Text>
+      <Text>set: {setInfo.id}</Text>
+      <Text>reps: {setInfo.reps}</Text>
+      <Text>weight: {setInfo.weight}</Text>
     </View>
   )
 
@@ -42,24 +26,34 @@ export default function App() {
     <View style={styles.Margin}>
       <TextInput
 	value={name}
-	onChangeText={(nameChange) => {
-	  name = nameChange
-	}}
+	onChangeText={setName}
+	placeholder="Exercise name"
       />
       <TextInput
 	value={type}
-	onChangeText={(typeChange) => {
-	  type = typeChange 
-	}}/>
+	onChangeText={setType}
+	placeholder="Exercide type"
+      />
+      <Pressable onPress={addSet}>
+	<Text>Add Set</Text>
+      </Pressable>
+      <TextInput
+	value={reps}
+	onChangeText={setReps}
+	placeholder="Set repeticions"
+      />
+      <TextInput
+	value={weight}
+	onChangeText={setWeight}
+	placeholder="Set weight"
+      />
+
       <Text>Sets: </Text>
       <FlatList 
 	data={DATA}
-	renderItem={({item}) => <Set SetInfo={item}/>}
+	renderItem={({item}) => <Set setInfo={item}/>}
         keyExtractor={item => item.id}
       />
-      <Pressable>
-	<Text>Add Set</Text>
-      </Pressable>
     </View>
   );
 }
@@ -70,8 +64,8 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   Flatlist: {
-    margin: 20,
-    marginBottom: 50,
-    width: 150,
+    flex: 1,
+    marginTop: 20,
+    marginBottom: 30,
   },
 })
