@@ -7,8 +7,8 @@ export default function App() {
   const [ DATA, setDATA ] = useState([]) 
   const [ name, setName ] = useState("")
   const [ type, setType ] = useState("")
-  const [ reps, setReps ] = useState()
-  const [ weight, setWeight ] = useState()
+  const [ reps, setReps ] = useState('')
+  const [ weight, setWeight ] = useState('')
 
   function addSet() {
     setDATA([...DATA, {id: DATA.length + 1, reps: reps, weight: weight,},])
@@ -47,7 +47,6 @@ export default function App() {
 	onChangeText={setWeight}
 	placeholder="Set weight"
       />
-
       <Text>Sets: </Text>
       <FlatList 
 	data={DATA}
