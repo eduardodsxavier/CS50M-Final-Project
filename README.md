@@ -1,3 +1,7 @@
+# important
+for continue with this project i will need to create a database inside the app files and that is beyond my current db skills
+
+
 # CS50M-Final-Project
 cs50 mobile course last activity
 
