@@ -1,7 +1,3 @@
-# important
-for continue with this project i will need to create a database inside the app files and that is beyond my current db skills
-
-
 # CS50M-Final-Project
 cs50 mobile course last activity
 
@@ -25,3 +21,5 @@ Create a gym notes app, that the user can see they workout through the days, wha
 ### extra 
 I want to Implement a recommended workout for people that dosn't know what workout to do, but i am not sure if i will implement that functionality.
 
+# Project notes 
+i will not use redux in this project, i will use sqlite3 as a database and expo-SQLite
