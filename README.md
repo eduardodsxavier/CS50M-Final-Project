@@ -22,4 +22,4 @@ Create a gym notes app, that the user can see they workout through the days, wha
 I want to Implement a recommended workout for people that dosn't know what workout to do, but i am not sure if i will implement that functionality.
 
 # Project notes 
-i will not use redux in this project, i will use sqlite3 as a database and expo-SQLite
+i will not use redux in this project, for complete this project i should use a database for save the exercises, but use of databases with react native are out of the course
